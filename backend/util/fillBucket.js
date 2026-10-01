@@ -1,9 +1,9 @@
-import fetchBucket from './getBucket.js';
 let fillBucket = (obj) =>{
     let tokens = obj.tokens;
     let maxTokens = obj.maxTokens;
     let lastTime = obj.lastTime;
     let extraSec = obj.extraSec;
+    let now = Date.now()
     let sec = (now - lastTime) + extraSec;
     let afterSec = 5000; 
     let extraToken;
