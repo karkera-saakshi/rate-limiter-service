@@ -1,0 +1,19 @@
+import consumeToken from "./consumeToken.js";
+const fetchBucket = new Map();
+let getBucket = (obj) =>{
+    let address = obj.address;
+    if(fetchBucket.has(address) == false)
+    {
+        fetchBucket.set(address, { tokens: 10, maxTokens: 10, lastTime: Date.now(), extraSec: 0 });
+    }
+    let newObj = consumeToken(fetchBucket.get(address)); 
+    const { isConsumed, ...bucket } = newObj;
+    if(newObj.isConsumed == true)
+    {
+        fetchBucket.set(address, bucket);
+    }
+    return isConsumed;
+    
+}
+
+export default getBucket;

@@ -5,6 +5,7 @@ let consumeToken = (bucket) => {
     let tokens = newObj.tokens;
     let lastTime = newObj.lastTime;
     let extraSec = newObj.extraSec;
+    let maxTokens = newObj.maxTokens;
     let isConsumed;
     if(tokens>0)
     {
@@ -19,8 +20,10 @@ let consumeToken = (bucket) => {
         tokens: tokens,
         lastTime: lastTime,
         extraSec: extraSec,
-        isConsumed: isConsumed
+        isConsumed: isConsumed,
+        maxTokens: maxTokens
     }
+    
     return obj;
 }
 
